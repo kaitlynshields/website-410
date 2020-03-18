@@ -1,0 +1,338 @@
+<!doctype html>
+
+<html>
+	
+<head>
+	
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto+Slab&display=swap" rel="stylesheet">
+    
+<!--The following displays language used in browser to interpret page -->
+<meta charset="UTF-8">
+
+<!--The following line of code displays the page title on a browser tab -->
+<title>Tale of Tattoos | Home</title>
+
+<!--link tags are for linking to external files, in this case your CSS stylesheet-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	
+<!--link tags are for linking to external files, in this case a special CSS stylesheet-->
+<link href="normalize.css" rel="stylesheet" type="text/css">
+
+<!--the following tag tells the browser to adjust the site according to screen size-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--The following code links to the jquery library -->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+<!--The following code links to the javascript file that runs the slideshow -->	
+<script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+    
+<!--The following code links to the javascript file that runs the parallax image -->    
+<script src="js/parallax.min.js"></script>
+	
+<!--The following code links to Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Raleway:900|Rubik" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+    
+ <!--The following adds favicon images -- be sure to verify paths--> 
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    
+<!--The following javscript runs the jquery slideshow -->
+<script type="text/javascript">
+$('#slider').cycle({});
+</script>
+
+<!--The following javascript runs the nav bar which disappears on scroll-->
+<script type="text/javascript">
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+</script>
+    
+<!--Favicon - images are in a folder called 'fav'-->
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!--End Favicon-->
+    
+<!--back to top button-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}    
+</script>   
+</head>
+
+<body>
+
+<!--beginning of navigation section-->
+<header>
+<div class="nav-container">
+<div class="brand"><img src="img/logo.jpg" width="84" height="60" alt=""/></div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+  <ul class="nav-list">
+        <li>
+          <a href="#home">Navigation</a>
+        </li>
+	   <li>
+          <a href="#gal">Navigation</a>
+		  </li>
+	  	<li>
+          <a href="#tl">Navigation</a>
+        </li>
+        <li>
+          <a href="#vid">Navigation</a>
+			</li>
+      <li>
+          <a href="#num">Navigation</a>
+			</li>
+      </ul>
+</nav>
+</div>
+<!--closing navigation tag-->
+</header>
+<!--end of navigation section-->
+    
+<!--main image-->
+<div class="container">
+</div>
+<!--animated welcome-->
+<div class="wrapper">
+<!--animated welcome code here-->	
+</div>
+    
+<!--beginning of main content area-->
+<div class="row whiteBG">
+<h2 id="home">Heading</h2>
+<article>
+<p class="tab">Blurb 1<br><br>Blurb 2</p>
+<p class="tab"><a href="#gal">Navigation</a></p>
+</article>
+</div>
+    <hr>
+
+<!--beginning of slideshow section-->
+<div class="row blueBG"><!--beginning of row-->
+<h2 id="gal">Slideshow</h2>
+<article><!--beginning of article-->
+<p class="tab">Blurb</p>
+<!--beginning of slideshow-->
+<div id="slider"
+data-cycle-caption="#alt-caption"
+data-cycle-caption-template="{{alt}}"
+data-cycle-fx="scrollHorz"
+data-cycle-pause-on-hover="true"
+data-cycle-speed="200">
+<div class="cycle-prev"></div>
+<div class="cycle-next"></div>
+<img src="img/1.jpg" width="100%" height="100%" alt="When walking into the college friendly tattoo shop in San Luis Obispo California you immediately come across a wall covered in skulls, paintings, autographed skateboards and religious depictions. Every piece of wall space has an artistic touch to it even if it is an arcade game. Traditional Tattoo is a common tattoo and piercing shop around town, always bustling with people ready for their next piece of body art.
+"/>
+<img src="img/2.jpg" width="100%" height="100%" alt="A group of college friends discuss their new tattoos and what exactly they want.  One sophomore computer science student said, “I love the freedom a tattoo gives me, it’s like a whole different side of me that I can express that people usually don’t see” (Justin Ayers, computer science second year)."/>
+<img src="img/3.jpg" width="100%" height="100%" alt="In the bathroom, posters decorate the rich brown walls.  Retro style comics such as Spiderman hang above the toilet, a tattooed version of Marilyn Monroe and Audrey Hepburn light up the room.  The old chandelier adds to the vintage energy of the room.  The walls are filled with images and photos leaving very little open space."/>
+<img src="img/4.jpg" width="100%" height="100%" alt="A man gets his shoulder tattooed, completing an already existent back tattoo.  He had a black intricate flower vines design spreading up his right back and shoulder.  The artist performing this task remarked that, “tattoos of this nature are some of the most common styles we get here” (Matt Southwood). Many people come into tattoo shops hoping for a geometric style tattoo of some sort."/>
+<img src="img/5.jpg" width="100%" height="100%" alt="Amanda Lyson, the girlfriend of the man getting his tattoo watches patiently while taking photos for her social media.  She says words of comfort to him while he winces in small amounts of pain.  She smiles and jokes around with the artist as they discuss tattoos that she wants, as well as ones she has already had done."/>
+<img src="img/6.jpg" width="100%" height="100%" alt="Lyson places her hand down on a bed to reveal her favorite tattoo.  It’s small and written in cursive edged in her left inner arm that reads “create.” She believes creativity is one of the most crucial concepts in human life and that everyone is destined for a different path to create something of themselves.  She says this tattoo is the most precious and meaningful to her.  She is a huge believer in tattoos allowing your inner expression to shine."/>
+<img src="img/7.jpg" width="100%" height="100%" alt="A bulletin board of common tattoo sketches hangs on the front wall behind the cash register.  Amongst these sketches are flowers, butterflies, sunshine or crosses.  One of Traditional’s artists explained the background on these sketches and why they’re the ones on the wall. “When people come in and don’t know what they want, a lot of times they’ll go for one of these sketches, they’re pretty common” (Shad Perlich)."/>
+<img src="img/8.jpg" width="100%" height="100%" alt="A typical tattoo bed is black with cushioning and sits in front of a chair, sectioned off from the rest of the parlor.  There are about six stations, two being in their own room at the back of the parlor.  Each bed and chair belongs to an artist and most of the more experienced artists hold their own room."/>
+<img src="img/9.jpg" width="100%" height="100%" alt="A typical piercing bed is tucked behind a curtain towards the back right side of the parlor.  Similarly to a tattoo station there is a chair next to it, as well as a small stand with a metal plate that would typically hold a piercing gun and the jewelry that will be placed in the piercing hole.  Most customers get ear piercings though “belly button, nose and lip piercings are all pretty common,” Perlich said.  Even though Traditional is seen as primarily a tattoo shop, more people come in to get piercings than tattoos."/>
+<img src="img/10.jpg" width="100%" height="100%" alt="When exiting Traditional you will see a large white board with the words “Shooting Gallery” written on it.  Stapled to this board are more common tattoo designs as well as their price.  To the right of this is a television that continuously flashes tattoo and piercing photos across it.  Above the television hangs the artists’ certificates of skill."/>
+</div><!--end of slideshow-->
+<!--beginning of slideshow caption-->
+<div id="alt-caption" class="center">
+</div><!--end of slideshow caption-->
+<p class="tab"><a href="#tl">Navigation</a></p>
+</article><!--end of article-->
+</div><!--end of row-->
+<!--end of slideshow section-->
+	
+<!--beginning of audio section-->
+<div class="row whiteBG">
+<h2 id="tl">Gifs</h2>
+<article>
+  <p class="tab">Click on images to hear ...<br>(Double-click to pause audio)</p>
+  <div class="table">
+	<div id="trip">
+<audio id="audio_1">
+    <source src="audio/California%20Polytechnic%20State%20University%202.m4a" type="audio/mpeg" />
+</audio>        
+<audio id="audio_2">
+    <source src="audio/Valencia%20Apartments%203.m4a" type="audio/mpeg" />
+</audio>        
+<audio id="audio_3">
+	<source src="audio/Valencia%20Apartments%202.m4a" type="audio/mpeg" />
+</audio>
+        
+<img src="img/rollover/alexa.gif" class="rollover" alt="description" onMouseOver="this.src='img/alexa.jpg.png'" onMouseOut="this.src='img/rollover/1.gif'" onClick="document.getElementById('audio_1').play(); return false;" onDblClick="document.getElementById('audio_1').pause(); return false;">
+ /&gt; 
+            
+<img src="img/rollover/chloe.gif" class="rollover" alt="description" onMouseOver="this.src='img/chloe.jpg.png'" onMouseOut="this.src='img/rollover/chloe.gif'" onClick="document.getElementById('audio_2').play(); return false;" onDblClick="document.getElementById('audio_2').pause(); return false;">
+ /&gt;
+            
+<img src="img/rollover/justin.gif" class="rollover" alt="description" onMouseOver="this.src='img/justin.jpg.png'" onMouseOut="this.src='img/rollover/justin.gif'" onClick="document.getElementById('audio_3').play(); return false;" onDblClick="document.getElementById('audio_3').pause(); return false;">
+/&gt;
+	</div>
+</div>
+<p class="tab"><a href="#vid">Navigation</a></p>		
+</article>
+</div>
+<!--end of audio section-->
+    
+<!--beginning of parallax image-->
+<div class="parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" iosFix="true" data-image-src="img/7.jpg">
+</div>
+<!--end of parallax image-->
+
+<!--beginning of video section-->
+<div class="row orangeBG">
+<h2 id="vid">Video Interview</h2>
+<article>
+<p class="tab">Blurb</p>	
+<video width="100%" height="100%" poster="img/poster.png" controls>
+<source src="img/brittanylodg.mov.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p class="tab"><a href="#num">Navigation</a></p>
+</article>
+</div>
+<!--end of video section-->
+
+<!--beginning of infographic section-->
+<div class="row whiteBG">
+<h2 id="num">Tattoos by Generations</h2>
+<article>
+<p class="tab"></p>
+<!--infographic embed code here-->
+</article>
+</div>
+   <div class="infogram-embed" data-id="bbaea3f5-32c4-4abf-92b8-ccb1ce6ad12b" data-type="interactive" data-title="Pictoral Chart"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/bbaea3f5-32c4-4abf-92b8-ccb1ce6ad12b" style="color:#989898!important;text-decoration:none!important;" target="_blank">Pictoral Chart</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+
+<!--end of infographic section-->
+	
+<!--beginning of footer-->
+<footer>Site Name Here | San Luis Obispo, CA | <a href="mailto: email@email.com?Subject=Inquiry" target="_top">Send Email</a> | Copyright 20__ | Site by You 
+</footer>
+<!--end of footer-->
+	
+</body>
+	
+<!--the following script controls the responsive navigation-->
+<script>
+	(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+	</script>
+	<script>
+	var headertext = [];
+var headers = document.querySelectorAll("#miyazaki th"),
+tablerows = document.querySelectorAll("#miyazaki th"),
+tablebody = document.querySelector("#miyazaki tbody");
+for(var i = 0; i < headers.length; i++) {
+	var current = headers[i];
+	headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+}
+for (var i = 0, row; row = tablebody.rows[i]; i++) {
+	for (var j = 0, col; col = row.cells[j]; j++) {
+		col.setAttribute("data-th", headertext[j]);
+	}
+}
+</script>
+    
+font-family: 'Roboto Slab', serif;
+font-family: 'Quicksand', sans-serif;
+	
+	<!----Prevents audio tracks from playing simultaneously---->
+<script>
+document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+}, true);
+    </script>
+
+</html>
+
+
+
